@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: inherit;
   font-weight: bold;
   text-align: center;
   margin: 20px;
@@ -37,6 +37,7 @@ h1 {
       
 .projects li.Success {
   background: #ada;
+  font-size: 25px;
 }
 
 .projects li.Success:hover {
@@ -56,6 +57,7 @@ h1 {
 
 .projects li.Building {
   background: #dda;
+  font-size: 100px;
 }
 
 .projects li.Building:hover {
