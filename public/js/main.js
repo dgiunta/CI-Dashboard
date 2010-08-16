@@ -1,0 +1,45 @@
+$(function() {
+  var passing         = $('#passing'),
+      failing         = $('#failing'),
+      building        = $('#building'),
+      project_template = '<li class=":activity :lastBuildStatus">'
+                       + '  <h2><a href=":webUrl" target="_blank">:name</a></h2>'
+                       + '  <ul class="details">'
+                       + '    <li class="build">:lastBuildLabel</li>'
+                       + '    <li class="time">:lastBuildTime</li>'
+                       + '  </ul>'
+                       + '</li>';
+
+  getProjects();
+  setInterval(getProjects, 5000);
+
+  function getProjects () {
+    passing.empty();
+    failing.empty();
+    building.empty();
+    loadFrom('10.98.0.222:8080');
+    loadFrom('10.98.0.85:8080');
+  }
+
+  function loadFrom (ip) {
+    $.get('/load_projects_from/' + ip, insertProjects);
+  }
+
+  function insertProjects(data) {
+    $('Project', data).each(function(i) {
+      var project = $(this), newProject = project_template;
+      newProject = newProject.replace(/:name/g,            project.attr('name'));
+      newProject = newProject.replace(/:activity/g,        project.attr('activity'));
+      newProject = newProject.replace(/:lastBuildStatus/g, project.attr('lastBuildStatus'));
+      newProject = newProject.replace(/:lastBuildLabel/g,  project.attr('lastBuildLabel'));
+      newProject = newProject.replace(/:lastBuildTime/g,   project.attr('lastBuildTime'));
+      newProject = newProject.replace(/:webUrl/g,          project.attr('webUrl'));
+      
+      if (project.attr('activity') === 'Building') {
+        building.append(newProject);
+      } else {
+        project.attr('lastBuildStatus') === 'Success' ? passing.append(newProject) : failing.append(newProject);
+      }
+    });
+  }
+});
