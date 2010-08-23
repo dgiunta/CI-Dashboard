@@ -12,7 +12,7 @@ $(function() {
   
   setupNav();
   getProjects();
-  // setInterval(getProjects, 5000);
+  setInterval(getProjects, 5000);
 
   function getProjects () {
     passing.empty();
