@@ -18,7 +18,7 @@ $(function() {
     passing.empty();
     failing.empty();
     building.empty();
-    loadFrom('10.98.0.103:8080');
+    loadFrom('10.98.0.222:8080');
     loadFrom('10.98.0.85:8080');
   }
 

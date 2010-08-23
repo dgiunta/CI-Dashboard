@@ -92,23 +92,42 @@ h1 {
 .projects li.Success .details    { margin-bottom: 14px; }
 .projects li.Success .details li { font-size: 10px; }
 .projects li.Success:hover {
-  background: #393;
   color: #fff;
+  background: #393;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8b8), to(#393));
+  background: -moz-linear-gradient(-90deg, #8b8, #393);
+}
+
+.projects li.Success:hover a {
+  text-shadow: 0 2px 0 #393;
 }
 
 .projects li.Failure { background: #daa; }
 .projects li.Failure a { font-size: 35px; }
 .projects li.Failure:hover {
-  background: #933;
   color: #fff;
+  background: #933;
+  background: -webkit-gradient(linear, left top, left bottom, from(#b88), to(#933));
+  background: -moz-linear-gradient(-90deg, #b88, #933);
 }
+
+.projects li.Failure:hover a {
+  text-shadow: 0 2px 0 #933;
+}
+
 
 .projects li.Building { background: #dda; }
 .projects li.Building a { font-size: 45px; }
 .projects li.Building .details li { font-size: 13px; }
 .projects li.Building:hover {
-  background: #993;
   color: #fff;
+  background: #993;
+  background: -webkit-gradient(linear, left top, left bottom, from(#bb8), to(#993));
+  background: -moz-linear-gradient(-90deg, #bb8, #993);
+}
+
+.projects li.Building:hover a {
+  text-shadow: 0 2px 0 #993;
 }
 
 .projects li.Failure .build { display: none; }
