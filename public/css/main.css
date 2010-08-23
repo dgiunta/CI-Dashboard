@@ -3,10 +3,62 @@ body {
 }
 
 h1 {
-  font-size: inherit;
+  font-size: 25px;
   font-weight: bold;
-  text-align: center;
-  margin: 20px;
+  text-align: left;
+  padding: 18px 15px 15px;
+  margin: 0 0 10px;
+  background: #aaa;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#aaa));
+  background: -moz-linear-gradient(-90deg, #ccc, #aaa);
+  color: #333;
+}
+
+.nav {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+}
+
+.nav li {
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav a {
+  background: #eee;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+  background: -moz-linear-gradient(-90deg, #eee, #ccc);
+  padding: 5px 10px;
+  line-height: 16px;
+  text-decoration: none;
+  color: #999;
+  border-radius: 14px;
+  -moz-border-radius: 14px;
+  -webkit-box-shadow: 0 -1px #fff, 0 1px 0 #999;
+  -moz-box-shadow: 0 1px 0 #999;
+  text-shadow: 0 -1px 2px #fff;
+}
+
+.nav a:hover {
+  background: #999;
+  background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#666));
+  background: -moz-linear-gradient(-90deg, #999, #666);
+  color: #fff;
+  text-shadow: 0 -1px 2px #666;
+  -webkit-box-shadow: 0 -1px #fff, 0 1px 0 #333;
+}
+
+.nav .selected {
+  color: #fff;
+  background: #333;
+  background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#555));
+  background: -moz-linear-gradient(-90deg, #333, #555);
+  -webkit-box-shadow: 0 -1px 0 #111, 0 1px 0 #eee;
+  -moz-box-shadow: 0 1px 0 #eee;
+  text-shadow: 0 -1px 2px #000;
 }
 
 .projects {
@@ -35,31 +87,25 @@ h1 {
   display: block;
 }
       
-.projects li.Success {
-  background: #ada;
-  font-size: 25px;
-}
-
+.projects li.Success             { background: #ada; }
+.projects li.Success a           { font-size: 18px; }
+.projects li.Success .details    { margin-bottom: 14px; }
+.projects li.Success .details li { font-size: 10px; }
 .projects li.Success:hover {
   background: #393;
   color: #fff;
 }
 
-.projects li.Failure {
-  background: #daa;
-  font-size: 50px;
-}
-
+.projects li.Failure { background: #daa; }
+.projects li.Failure a { font-size: 35px; }
 .projects li.Failure:hover {
   background: #933;
   color: #fff;
 }
 
-.projects li.Building {
-  background: #dda;
-  font-size: 100px;
-}
-
+.projects li.Building { background: #dda; }
+.projects li.Building a { font-size: 45px; }
+.projects li.Building .details li { font-size: 13px; }
 .projects li.Building:hover {
   background: #993;
   color: #fff;
@@ -76,6 +122,7 @@ h1 {
   margin: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+  padding: 0;
 }
 
 .projects .details li {
@@ -89,4 +136,43 @@ h1 {
   font-size: 13px;
   opacity: .5;
   letter-spacing: .08em;
+}
+
+
+body.linear .projects {
+  width: 50%;
+}
+
+body.linear .projects > li {
+  display: block;
+  width: auto;
+  overflow: hidden;
+  text-align: left;
+}
+
+body.linear #passing {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  width: 50%;
+  overflow: hidden;
+}
+
+body.linear #building,
+body.linear #failing {
+  float: left;
+  clear: left;
+  margin-left: 10px;
+}
+
+body.linear .details {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+body.linear #passing .Success {
+  width: 48%;
+  float: right;
+  margin-right: 0;
+  margin-left: 10px;
 }
