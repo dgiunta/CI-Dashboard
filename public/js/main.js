@@ -2,7 +2,7 @@ $(function() {
   var passing         = $('#passing'),
       failing         = $('#failing'),
       building        = $('#building'),
-      project_template = '<li class=":activity :lastBuildStatus">'
+      project_template = '<li>'
                        + '  <h2><a href=":webUrl" target="_blank">:name</a></h2>'
                        + '  <ul class="details">'
                        + '    <li class="build">:lastBuildLabel</li>'
@@ -12,7 +12,7 @@ $(function() {
   
   setupNav();
   getProjects();
-  setInterval(getProjects, 5000);
+  // setInterval(getProjects, 5000);
 
   function getProjects () {
     passing.empty();
@@ -30,11 +30,10 @@ $(function() {
     $('Project', data).each(function(i) {
       var project = $(this), newProject = project_template;
       newProject = newProject.replace(/:name/g,            project.attr('name'));
-      newProject = newProject.replace(/:activity/g,        project.attr('activity'));
-      newProject = newProject.replace(/:lastBuildStatus/g, project.attr('lastBuildStatus'));
       newProject = newProject.replace(/:lastBuildLabel/g,  project.attr('lastBuildLabel'));
       newProject = newProject.replace(/:lastBuildTime/g,   project.attr('lastBuildTime'));
       newProject = newProject.replace(/:webUrl/g,          project.attr('webUrl'));
+      newProject = $(newProject).click(function(e) { window.open(project.attr('webUrl')); });
       
       if (project.attr('activity') === 'Building') {
         building.append(newProject);

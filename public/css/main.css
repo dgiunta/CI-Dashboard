@@ -76,6 +76,13 @@ h1 {
   color: #333;
   -moz-border-radius: 15px;
   border-radius: 15px;
+  cursor: pointer;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.4)), to(rgba(255,255,255,0)));
+  background-image: -moz-linear-gradient(-90deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+}
+
+.projects > li:hover {
+  -webkit-box-shadow: 0 2px 30px rgba(0, 0, 0, .4);
 }
 
 .projects a {
@@ -87,50 +94,43 @@ h1 {
   display: block;
 }
       
-.projects li.Success             { background: #ada; }
-.projects li.Success a           { font-size: 18px; }
-.projects li.Success .details    { margin-bottom: 14px; }
-.projects li.Success .details li { font-size: 10px; }
-.projects li.Success:hover {
+#passing > li             { background-color: #ada; }
+#passing > li a           { font-size: 18px; }
+#passing > li .details    { margin-bottom: 14px; }
+#passing > li .details li { font-size: 10px; }
+#passing > li:hover {
   color: #fff;
-  background: #393;
-  background: -webkit-gradient(linear, left top, left bottom, from(#8b8), to(#393));
-  background: -moz-linear-gradient(-90deg, #8b8, #393);
+  background-color: #393;
 }
 
-.projects li.Success:hover a {
+#passing > li:hover a {
   text-shadow: 0 2px 0 #393;
 }
 
-.projects li.Failure { background: #daa; }
-.projects li.Failure a { font-size: 35px; }
-.projects li.Failure:hover {
+#failing > li { background-color: #daa; }
+#failing > li a { font-size: 35px; }
+#failing > li:hover {
   color: #fff;
-  background: #933;
-  background: -webkit-gradient(linear, left top, left bottom, from(#b88), to(#933));
-  background: -moz-linear-gradient(-90deg, #b88, #933);
+  background-color: #933;
 }
 
-.projects li.Failure:hover a {
+#failing > li:hover a {
   text-shadow: 0 2px 0 #933;
 }
 
-
-.projects li.Building { background: #dda; }
-.projects li.Building a { font-size: 45px; }
-.projects li.Building .details li { font-size: 13px; }
-.projects li.Building:hover {
+#building > li { background-color: #dda; }
+#building > li a { font-size: 45px; }
+#building > li .details li { font-size: 13px; }
+#building > li:hover {
   color: #fff;
-  background: #993;
-  background: -webkit-gradient(linear, left top, left bottom, from(#bb8), to(#993));
-  background: -moz-linear-gradient(-90deg, #bb8, #993);
+  background-color: #993;
 }
 
-.projects li.Building:hover a {
+#building > li:hover a {
   text-shadow: 0 2px 0 #993;
 }
 
-.projects li.Failure .build { display: none; }
+#failing > li .build { display: none; }
 
 .projects li:hover .details li {
   opacity: 1;
@@ -159,29 +159,15 @@ h1 {
 
 
 body.linear .projects {
-  width: 50%;
+  margin: 0 10px 10px;
+  float: none;
 }
 
 body.linear .projects > li {
-  display: block;
   width: auto;
+  display: block;
   overflow: hidden;
   text-align: left;
-}
-
-body.linear #passing {
-  position: absolute;
-  top: 70px;
-  right: 10px;
-  width: 50%;
-  overflow: hidden;
-}
-
-body.linear #building,
-body.linear #failing {
-  float: left;
-  clear: left;
-  margin-left: 10px;
 }
 
 body.linear .details {
@@ -189,9 +175,35 @@ body.linear .details {
   margin-bottom: 20px;
 }
 
-body.linear #passing .Success {
-  width: 48%;
-  float: right;
+body.linear #passing > li {
+  width: 32.5%;
+  float: left;
+  margin-right: 1.25%;
+}
+
+body.linear #building > li,
+body.linear #failing > li,
+body.linear #passing > li:nth-child(3n) {
   margin-right: 0;
-  margin-left: 10px;
+}
+
+body.linear .projects li:last-child {
+  margin-bottom: 0;
+}
+
+body.linear #building .details,
+body.linear #failing .details {
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  margin-left: 0;
+  top: -5px;
+}
+
+body.linear #building h2,
+body.linear #failing h2 {
+  margin-bottom: 20px;
+  margin-right: 0;
+  display: inline-block;
+  vertical-align: bottom;
 }
