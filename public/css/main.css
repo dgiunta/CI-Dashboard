@@ -119,11 +119,19 @@ h1 {
 }
 
 #building > li { background-color: #dda; }
-#building > li a { font-size: 45px; }
-#building > li .details li { font-size: 13px; }
+#building a { font-size: 45px; }
+
+#building h2 {
+  background: transparent url(/images/ajax-loader.gif) 20px 80% no-repeat;
+  padding-left: 35px;
+}
+#building .details li { font-size: 13px; }
 #building > li:hover {
   color: #fff;
   background-color: #993;
+}
+#building > li:hover h2 {
+  background-image: url(/images/ajax-loader-dark.gif);
 }
 
 #building > li:hover a {

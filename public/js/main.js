@@ -1,5 +1,6 @@
 $(function() {
-  var passing         = $('#passing'),
+  var pollingTimeout,
+      passing         = $('#passing'),
       failing         = $('#failing'),
       building        = $('#building'),
       project_template = '<li>'
@@ -12,8 +13,19 @@ $(function() {
   
   setupNav();
   getProjects();
-  // setInterval(getProjects, 5000);
-
+  
+  function startPolling () {
+    pollingTimeout = setInterval(getProjects, 5000);
+  }
+  
+  function stopPolling () {
+    clearTimeout(pollingTimeout);
+  }
+  
+  startPolling();
+  window.startPolling = startPolling;
+  window.stopPolling = stopPolling;
+  
   function getProjects () {
     passing.empty();
     failing.empty();
